@@ -1,0 +1,27 @@
+/*
+The M palette object (Catppuccin Mocha).
+Single source of truth for all colours.
+Imported by every component that needs a colour.
+*/
+export const M = {
+    base: "#1e1e2e",
+    mantle: "#181825",
+    crust: "#11111b",
+    s0: "#313244",
+    s1: "#45475a",
+    s2: "#585b70",
+    ov0: "#6c7086",
+    ov1: "#7f849c",
+    sub0: "#a6adc8",
+    sub1: "#bac2de",
+    text: "#cdd6f4",
+    blue: "#89b4fa",
+    teal: "#94e2d5",
+    green: "#a6e3a1",
+    yell: "#f9e2af",
+    peach: "#fab387",
+    red: "#f38ba8",
+    mauve: "#cba6f7",
+    lav: "#b4befe",
+    saph: "#74c7ec",
+}
