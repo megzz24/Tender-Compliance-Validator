@@ -1,13 +1,3 @@
-"""
-All Pydantic request and response models:
-    SessionCreate, SessionResponse
-    RequirementResponse, RequirementUpdate, RequirementCreate
-    VendorResultResponse
-    RiskReportResponse
-    ValidationResult (per-requirement result shape)
-    RiskFlag (individual flag shape)
-"""
-
 from pydantic import BaseModel
 from typing import Optional, Any
 from datetime import datetime

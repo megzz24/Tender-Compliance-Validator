@@ -1,9 +1,3 @@
-/*
-Fixed left sidebar. Shows 5 step indicators.
-Active step highlighted in mauve.
-Completed steps are clickable to go back.
-Session info panel at the bottom.
-*/
 const STEPS = ["Upload", "Analyse", "Review", "Validate", "Dashboard"]
 const STEP_PAGES = ["upload", "pipeline", "requirements", "validation", "dashboard"]
 

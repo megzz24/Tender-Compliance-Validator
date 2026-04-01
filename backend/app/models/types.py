@@ -1,11 +1,3 @@
-"""
-Python Literal types used across the app:
-    Status 
-    Severity 
-    RiskLevel 
-    Category
-    SessionStatus 
-"""
 from typing import Literal
 
 Status   = Literal["Met", "Partial", "Missing"]

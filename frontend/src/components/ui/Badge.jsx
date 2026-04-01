@@ -1,8 +1,3 @@
-/*
-Coloured pill with transparent background.
-Props: label, color. Used for categories,
-statuses, risk levels, severity levels.
-*/
 export default function Badge({ label, color }) {
     return (
         <span style={{

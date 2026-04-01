@@ -1,9 +1,3 @@
-/*
-Button component with 4 variants:
-primary (mauve), ghost (transparent),
-danger (red tint), export (teal tint).
-Accepts disabled prop.
-*/
 export default function Btn({ children, onClick, disabled, variant = "primary" }) {
     const base = {
         padding: "9px 20px",

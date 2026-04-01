@@ -1,8 +1,3 @@
-/*
-The M palette object (Catppuccin Mocha).
-Single source of truth for all colours.
-Imported by every component that needs a colour.
-*/
 export const M = {
     base: "#1e1e2e",
     mantle: "#181825",

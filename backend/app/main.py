@@ -1,17 +1,19 @@
-"""
-FastAPI app instance. Registers all routers with /api prefix.
-Configures CORS to allow requests from the frontend.
-Mounts nothing else — just wires everything together.
-"""
 import os
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
 from app.config import settings
 
-app = FastAPI(title="Tender Compliance Validator")
 
-# ── CORS ──────────────────────────────────────────────────────────────────────
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup
+    os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
+    yield
+    # Shutdown (nothing to clean up)
+
+
+app = FastAPI(title="Tender Compliance Validator", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -21,30 +23,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ── Upload directory ──────────────────────────────────────────────────────────
+from app.routers import sessions  # noqa: E402
+from app.routers import documents  # noqa: E402
+from app.routers import pipeline  # noqa: E402
+from app.routers import requirements  # noqa: E402
 
-@app.on_event("startup")
-async def startup_event():
-    os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
-
-# ── Routers ───────────────────────────────────────────────────────────────────
-# Imported here so they register after the app is created.
-# Each router is added as features are built — uncomment as you go.
-
-from app.routers import sessions      # noqa: E402
-# from app.routers import documents   # uncomment in Feature 1
-# from app.routers import pipeline    # uncomment in Feature 1
-# from app.routers import requirements # uncomment in Feature 1
 # from app.routers import results     # uncomment in Feature 2
 
-app.include_router(sessions.router,  prefix="/api")
-# app.include_router(documents.router,    prefix="/api")
-# app.include_router(pipeline.router,     prefix="/api")
-# app.include_router(requirements.router, prefix="/api")
-# app.include_router(results.router,      prefix="/api")
+app.include_router(sessions.router, prefix="/api")
+app.include_router(documents.router, prefix="/api")
+app.include_router(pipeline.router, prefix="/api")
+app.include_router(requirements.router, prefix="/api")
+# app.include_router(results.router,    prefix="/api")
 
-
-# ── Health check ──────────────────────────────────────────────────────────────
 
 @app.get("/api/health")
 async def health():

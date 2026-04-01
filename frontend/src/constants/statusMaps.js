@@ -1,7 +1,3 @@
-/* 
-CAT_COLORS, STATUS_COLOR, RISK_COLOR, SEV_COLOR maps.
-Maps category/status/risk strings to their hex colours.
-*/
 import { M } from "./colors"
 
 export const CAT_COLORS = {

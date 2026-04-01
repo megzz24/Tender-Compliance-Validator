@@ -1,8 +1,3 @@
-/*
-Displays tone score as a coloured pill.
-≥7 = green/Precise, 5-6 = yellow/Moderate,
-<5 = red/Vague. Shows score/10 + label.
-*/
 export default function TonePill({ tone }) {
     // tone is 0-100 from the backend
     const col = tone >= 70 ? "#a6e3a1" : tone >= 40 ? "#f9e2af" : "#f38ba8"

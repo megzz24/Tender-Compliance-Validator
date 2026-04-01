@@ -1,11 +1,3 @@
-/*
-Dark scrolling terminal panel.
-Accepts lines array and done boolean.
-Auto-scrolls to bottom on new lines.
-Colours: active line = yellow, done lines
-starting with ✓ = teal, others = sub0.
-Shows blinking cursor when not done.
-*/
 import { useEffect, useRef } from "react"
 
 export default function LogTerminal({ lines, done }) {

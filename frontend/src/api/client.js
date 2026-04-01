@@ -1,8 +1,3 @@
-/* 
-Base fetch wrapper. Reads VITE_API_BASE_URL from env.
-Exports get(), post(), patch(), del() helpers.
-All throw on non-2xx responses with the error message.
-*/
 const BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"
 
 async function request(method, path, body = null) {
